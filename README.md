@@ -5,7 +5,7 @@ Este SDK proporciona una interfaz fácil de usar para interactuar con la API de 
 ## Instalación
 
 ```bash
-npm install remesita-sdk --save
+npm install remesita-typescript-node-sdk-client --save
 ```
 
 ## Uso
@@ -13,7 +13,7 @@ npm install remesita-sdk --save
 Primero, importa el SDK y crea una instancia:
 
 ```typescript
-import { RemesitaSDK } from 'remesita-sdk';
+import { RemesitaSDK } from 'remesita-typescript-node-sdk-client';
 
 const sdk = new RemesitaSDK('YOUR_API_KEY', 'YOUR_API_SECRET');
 ```
