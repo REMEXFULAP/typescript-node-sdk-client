@@ -1,4 +1,4 @@
-import { RemesitaSDK } from 'remesita-sdk';
+import { RemesitaSDK } from 'remesita-typescript-node-sdk-client';
 
 describe('RemesitaSDK Functional Tests', () => {
     let sdk: RemesitaSDK;
