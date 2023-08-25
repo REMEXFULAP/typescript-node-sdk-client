@@ -231,9 +231,13 @@ class RemesitaAPI {
             return { success: false, error: error.message };
         }
     }
-    public async createPaymentLink(amount: number, memo: string): Promise<ApiResponse<PaymentLinkResponse>> {
+
+   
+   
+
+    public async createPaymentLink(businessUnitId: string, amount: number, memo: string, ipnUrl?: string,successUrl?: string, cancelUrl?: string,customId?: string,payerName?: string,payerPhone?: string,payerEmail?: string): Promise<ApiResponse<PaymentLinkResponse>> {
         try {
-            const response = await axios.post(`${this.baseURL}/rest/v1/payment-link`, { amount, memo }, { headers: this.headers });
+            const response = await axios.post(`${this.baseURL}/rest/v1/payment-link`, {businessUnitId, amount, memo,ipnUrl,successUrl, cancelUrl,customId, payerName,payerPhone, payerEmail }, { headers: this.headers });
             return { success: true, data: response.data };
         } catch (error) {
             return { success: false, error: error.message };
