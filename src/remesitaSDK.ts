@@ -175,13 +175,13 @@ class RemesitaAPI {
         }
     }
 
-    public async getCardTransactions(cardNumber: string, startDate?: string, endDate?: string): Promise<ApiResponse<CardTransaction[]>> {
+    public async getCardTransactions(cardNumber: string, startDate?: string, endDate?: string, pg?:number , pgSize?: number): Promise<ApiResponse<CardTransaction[]>> {
         try {
-            const response = await axios.get(`${this.baseURL}/rest/v1/card/${cardNumber}/transactions`, {
+            const response = await axios.get(`${this.baseURL}/rest/v1/card/${cardNumber}/transactions/${pg??1}/${pgSize??25}`, {
                 headers: this.headers,
                 params: {
-                    start_date: startDate,
-                    end_date: endDate
+                    from: startDate,
+                    to: endDate
                 }
             });
             return { success: true, data: response.data };
