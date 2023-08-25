@@ -198,15 +198,16 @@ class RemesitaAPI {
             return { success: false, error: error.message };
         }
     }
-    public async getOrders(book?: string, marker?: string, sort?: string, limit?: number): Promise<ApiResponse<Order[]>> {
+    public async getOrders(from?: string, to?: string, pg?: number, pgSize?: number, status?: string): Promise<ApiResponse<Order[]>> {
         try {
             const response = await axios.get(`${this.baseURL}/rest/v1/orders`, {
                 headers: this.headers,
                 params: {
-                    book,
-                    marker,
-                    sort,
-                    limit
+                    from,
+                    to,
+                    pg,
+                    pgSize,
+                    status
                 }
             });
             return { success: true, data: response.data };
@@ -214,15 +215,15 @@ class RemesitaAPI {
             return { success: false, error: error.message };
         }
     }
-    public async getP2POperations(book?: string, marker?: string, sort?: string, limit?: number): Promise<ApiResponse<P2POperation[]>> {
+    public async getP2POperations(from?: string, to?: string, pg?: number, pgSize?: number): Promise<ApiResponse<P2POperation[]>> {
         try {
             const response = await axios.get(`${this.baseURL}/rest/v1/p2p`, {
                 headers: this.headers,
                 params: {
-                    book,
-                    marker,
-                    sort,
-                    limit
+                    from,
+                    to,
+                    pg,
+                    pgSize
                 }
             });
             return { success: true, data: response.data };
